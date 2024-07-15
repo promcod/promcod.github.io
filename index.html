@@ -19,7 +19,16 @@
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
         <!-- Devicon: Programming languages icons
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"> -->
-    </head>
+        <style>
+          #output {
+              display: none; /* ابتدا خروجی را پنهان کنید */
+          }
+  
+          #loading {
+              display: none; /* ابتدا لودینگ را پنهان کنید */
+          }
+      </style>
+        </head>
 
     <body>
         <nav class="navbar navbar-dark navbar-expand bg-primary">
@@ -34,7 +43,7 @@
                             <a rel="nofollow" class="nav-link" href="#">درباره اسکریپت</a>
                         </li>
                         <li class="nav-item">
-                            <a rel="nofollow" class="nav-link" href="#">گیت هاب</a>
+                            <a rel="nofollow" class="nav-link" href="https://github.com/promcod/xpromo">گیت هاب</a>
                         </li>
                     </ul>
                 </div>
@@ -42,9 +51,45 @@
         </nav>
 
         <div class="container my-4 ">
-            <div class="row justify-content-center">
-                <div class="col-lg mb-lg-4">
-                    <img src="img.png" class="img-fluid" alt="" srcset="">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg mb-lg-4 codepreview text-center">
+                  <!--  <img src="img.png" class="img-fluid" alt="" srcset=""> -->
+                  <button id="myButton" class="btn btn-info">تولید کد هدیه وان ایکس بت</button>
+                  <div id="loading">در حال بارگذاری...</div>
+                  <p id="output" class="mt-2"></p>
+                  
+              
+                  <script>
+                      // آرایه اعداد
+                      const numbers = ['1x_54641', '1x_47239', '1x_55592', '1x_55593', '1x_55627'];
+              
+                      // تابع برای نمایش عدد تصادفی
+                      function showRandomNumber() {
+                          // انتخاب یک عدد تصادفی از آرایه
+                          const randomIndex = Math.floor(Math.random() * numbers.length);
+                          const randomNum = numbers[randomIndex];
+              
+                          // نمایش لودینگ
+                          const loadingElement = document.getElementById('loading');
+                          loadingElement.style.display = 'block';
+              
+                          // صبر به مدت 2 ثانیه
+                          setTimeout(() => {
+                              // پنهان کردن لودینگ
+                              loadingElement.style.display = 'none';
+              
+                              // نمایش عدد تصادفی در خروجی
+                              const outputElement = document.getElementById('output');
+                              outputElement.style.display = 'block';
+                              outputElement.textContent = randomNum;
+                          }, 2000);
+                      }
+              
+                      // رویداد کلیک برای دکمه
+                      const button = document.getElementById('myButton');
+                      button.addEventListener('click', showRandomNumber);
+                  </script>
+
                 </div>
                 <div class="col-lg mx-2 align-self-center">
                     <div class="my-3">
@@ -107,6 +152,10 @@
                     </div>
                 </div>
             </div>
+
+            <!--Section: FAQ-->
+
+  
         </div>
      <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
